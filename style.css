@@ -88,11 +88,18 @@ body {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+
+  animation: slide-out 0.2s;
+
+  transition: outline 0.1s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial; /*Volta elemnto para posição inicial*/
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -182,5 +189,26 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animations */
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
   }
 }
